@@ -22,13 +22,11 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
 ```R
   lname = load("test-data/1.RData");
 ```
-<br>
   * step 2.2 gene ranking
 ```R
    source("./rankgene_new.r")
    ggrank = rankgene_new(networks,0.2)
 ```
-<br>
   * step 2.3 seed selection
 ```R
    ggrank[ggrank>2] = 2;
@@ -37,7 +35,6 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
    seedgene = order(generank,decreasing=TRUE);
    seeds = seedgene[1:500]
 ```
-<br>
   * step 2.4 module discovery
 ```R
    source("./nmodule.R");
