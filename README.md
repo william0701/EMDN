@@ -18,16 +18,16 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
   # delta : the cutoff parameter for co-methylation (co-expression) network
 ```
 * __step 2: Functional epigenetic module discovery__
-  * step 2.1 loading the multiple differential networks
+>step 2.1 loading the multiple differential networks
 ```R
   lname = load("test-data/1.RData");
 ```
-  * step 2.2 gene ranking
+>step 2.2 gene ranking
 ```R
    source("./rankgene_new.r")
    ggrank = rankgene_new(networks,0.2)
 ```
-  * step 2.3 seed selection
+>step 2.3 seed selection
 ```R
    ggrank[ggrank>2] = 2;
    ggrank[ggrank< -2] = -2;   
@@ -35,7 +35,7 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
    seedgene = order(generank,decreasing=TRUE);
    seeds = seedgene[1:500]
 ```
-  * step 2.4 module discovery
+>step 2.4 module discovery
 ```R
    source("./nmodule.R");
    fem_modules =nmodule(networks,seeds);
