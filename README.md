@@ -41,8 +41,7 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
    source("./nmodule.R");
    fem_modules =nmodule(networks,seeds);
 ```
->blockquot
-##For more details, refer to main_fem-DM_test.r
+>\*For more details, refer to main_fem-DM_test.r
 
 
 
