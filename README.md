@@ -20,6 +20,26 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
 * __step 2: Functional epigenetic module discovery__
 ** step 2.1 loading the multiple differential networks
 ```R
-lname = load("test-data/1.RData");
+  lname = load("test-data/1.RData");
 ```
+** step 2.2 gene ranking
+```R
+   source("./rankgene_new.r")
+   ggrank = rankgene_new(networks,0.2)
+```
+** step 2.3 seed selection
+```R
+   ggrank[ggrank>2] = 2;
+   ggrank[ggrank< -2] = -2;   
+   generank = rowSums(ggrank);
+   seedgene = order(generank,decreasing=TRUE);
+   seeds = seedgene[1:500]
+```
+** step 2.4 module discovery
+```R
+   source("./nmodule.R");
+   fem_modules =nmodule(networks,seeds);
+```
+#For more details, refer to main_fem-DM_test.r
+
 
