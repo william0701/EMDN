@@ -13,10 +13,13 @@ The FEM-DM algorithm is designed for identifying methylated gene modules in mult
 ```R
   source("dif_network_construction.r")
   dif_network = dif_network_construction(genemeth, pvalue, delta)
-  #genemeth: the matrix denoting methyaltion data where row corresponds to gene and 
-   column to sample
+  #genemeth: the matrix denoting methyaltion data where row corresponds to gene and column to sample
   #pvalue: the pvalue of gene differential methylation between two cohorts
   # delta : the cutoff parameter for co-methylation (co-expression) network
 ```
-
+* __step 2: Functional epigenetic module discovery__
+** step 2.1 loading the multiple differential networks
+```R
+lname = load("test-data/1.RData");
+```
 
